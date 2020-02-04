@@ -25,6 +25,12 @@ namespace DCP.ViewModel.ConnectionVMs
     /// </summary>
     public class Connection_BatchEdit : BaseVM
     {
+        [Display(Name = "主机")]
+        public String Host { get; set; }
+        [Display(Name = "用户名")]
+        public String Username { get; set; }
+        [Display(Name = "密码")]
+        public String Password { get; set; }
 
         protected override void InitVM()
         {

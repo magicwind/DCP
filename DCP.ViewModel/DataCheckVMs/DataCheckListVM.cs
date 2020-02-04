@@ -43,12 +43,14 @@ namespace DCP.ViewModel.DataCheckVMs
         public override IOrderedQueryable<DataCheck_View> GetSearchQuery()
         {
             var query = DC.Set<DataCheck>()
+                .CheckEqual(Searcher.LeftConnectionID, x=>x.LeftConnectionID)
                 .CheckContain(Searcher.LeftTable, x=>x.LeftTable)
+                .CheckEqual(Searcher.RightConnectionID, x=>x.RightConnectionID)
                 .CheckContain(Searcher.RightTable, x=>x.RightTable)
                 .CheckEqual(Searcher.RowChange, x=>x.RowChange)
                 .Select(x => new DataCheck_View
                 {
-				    ID = x.ID,
+                    ID = x.ID,
                     Name_view = x.LeftConnection.Name,
                     LeftTable = x.LeftTable,
                     Name_view2 = x.RightConnection.Name,

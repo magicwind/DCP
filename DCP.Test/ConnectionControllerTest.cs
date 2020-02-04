@@ -42,11 +42,13 @@ namespace DCP.Test
             ConnectionVM vm = rv.Model as ConnectionVM;
             Connection v = new Connection();
 			
-            v.Name = "cwy";
-            v.Host = "TnzYKkEYk";
-            v.Port = 13;
-            v.Username = "LKUv8L01";
-            v.Password = "ihK";
+            v.Name = "KgH";
+            v.Host = "gMTL";
+            v.Port = 12;
+            v.Database = "tBEa";
+            v.Username = "2jZ";
+            v.Password = "1O0xDQf";
+            v.ID = 10;
             vm.Entity = v;
             _controller.Create(vm);
 
@@ -54,11 +56,13 @@ namespace DCP.Test
             {
                 var data = context.Set<Connection>().FirstOrDefault();
 				
-                Assert.AreEqual(data.Name, "cwy");
-                Assert.AreEqual(data.Host, "TnzYKkEYk");
-                Assert.AreEqual(data.Port, 13);
-                Assert.AreEqual(data.Username, "LKUv8L01");
-                Assert.AreEqual(data.Password, "ihK");
+                Assert.AreEqual(data.Name, "KgH");
+                Assert.AreEqual(data.Host, "gMTL");
+                Assert.AreEqual(data.Port, 12);
+                Assert.AreEqual(data.Database, "tBEa");
+                Assert.AreEqual(data.Username, "2jZ");
+                Assert.AreEqual(data.Password, "1O0xDQf");
+                Assert.AreEqual(data.ID, 10);
                 Assert.AreEqual(data.CreateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.CreateTime.Value).Seconds < 10);
             }
@@ -72,11 +76,13 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
        			
-                v.Name = "cwy";
-                v.Host = "TnzYKkEYk";
-                v.Port = 13;
-                v.Username = "LKUv8L01";
-                v.Password = "ihK";
+                v.Name = "KgH";
+                v.Host = "gMTL";
+                v.Port = 12;
+                v.Database = "tBEa";
+                v.Username = "2jZ";
+                v.Password = "1O0xDQf";
+                v.ID = 10;
                 context.Set<Connection>().Add(v);
                 context.SaveChanges();
             }
@@ -88,30 +94,34 @@ namespace DCP.Test
             v = new Connection();
             v.ID = vm.Entity.ID;
        		
-            v.Name = "TLJt1";
-            v.Host = "qJCqDa8";
-            v.Port = 11;
-            v.Username = "amfm7d";
-            v.Password = "pNhM";
+            v.Name = "us3obVjYg";
+            v.Host = "Dv6R8YTw";
+            v.Port = 61;
+            v.Database = "KGi";
+            v.Username = "5SGjrD";
+            v.Password = "MH10RD";
             vm.Entity = v;
             vm.FC = new Dictionary<string, object>();
 			
             vm.FC.Add("Entity.Name", "");
             vm.FC.Add("Entity.Host", "");
             vm.FC.Add("Entity.Port", "");
+            vm.FC.Add("Entity.Database", "");
             vm.FC.Add("Entity.Username", "");
             vm.FC.Add("Entity.Password", "");
+            vm.FC.Add("Entity.ID", "");
             _controller.Edit(vm);
 
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
                 var data = context.Set<Connection>().FirstOrDefault();
  				
-                Assert.AreEqual(data.Name, "TLJt1");
-                Assert.AreEqual(data.Host, "qJCqDa8");
-                Assert.AreEqual(data.Port, 11);
-                Assert.AreEqual(data.Username, "amfm7d");
-                Assert.AreEqual(data.Password, "pNhM");
+                Assert.AreEqual(data.Name, "us3obVjYg");
+                Assert.AreEqual(data.Host, "Dv6R8YTw");
+                Assert.AreEqual(data.Port, 61);
+                Assert.AreEqual(data.Database, "KGi");
+                Assert.AreEqual(data.Username, "5SGjrD");
+                Assert.AreEqual(data.Password, "MH10RD");
                 Assert.AreEqual(data.UpdateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.UpdateTime.Value).Seconds < 10);
             }
@@ -126,11 +136,13 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
         		
-                v.Name = "cwy";
-                v.Host = "TnzYKkEYk";
-                v.Port = 13;
-                v.Username = "LKUv8L01";
-                v.Password = "ihK";
+                v.Name = "KgH";
+                v.Host = "gMTL";
+                v.Port = 12;
+                v.Database = "tBEa";
+                v.Username = "2jZ";
+                v.Password = "1O0xDQf";
+                v.ID = 10;
                 context.Set<Connection>().Add(v);
                 context.SaveChanges();
             }
@@ -159,11 +171,13 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v.Name = "cwy";
-                v.Host = "TnzYKkEYk";
-                v.Port = 13;
-                v.Username = "LKUv8L01";
-                v.Password = "ihK";
+                v.Name = "KgH";
+                v.Host = "gMTL";
+                v.Port = 12;
+                v.Database = "tBEa";
+                v.Username = "2jZ";
+                v.Password = "1O0xDQf";
+                v.ID = 10;
                 context.Set<Connection>().Add(v);
                 context.SaveChanges();
             }
@@ -180,16 +194,19 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.Name = "cwy";
-                v1.Host = "TnzYKkEYk";
-                v1.Port = 13;
-                v1.Username = "LKUv8L01";
-                v1.Password = "ihK";
-                v2.Name = "TLJt1";
-                v2.Host = "qJCqDa8";
-                v2.Port = 11;
-                v2.Username = "amfm7d";
-                v2.Password = "pNhM";
+                v1.Name = "KgH";
+                v1.Host = "gMTL";
+                v1.Port = 12;
+                v1.Database = "tBEa";
+                v1.Username = "2jZ";
+                v1.Password = "1O0xDQf";
+                v1.ID = 10;
+                v2.Name = "us3obVjYg";
+                v2.Host = "Dv6R8YTw";
+                v2.Port = 61;
+                v2.Database = "KGi";
+                v2.Username = "5SGjrD";
+                v2.Password = "MH10RD";
                 context.Set<Connection>().Add(v1);
                 context.Set<Connection>().Add(v2);
                 context.SaveChanges();

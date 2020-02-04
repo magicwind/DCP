@@ -13,12 +13,12 @@ namespace DCP.Model
         HasDelete
     }
 
-    public class DataCheck : BasePoco
+    public class DataCheck : BasePocoWithIntKey
     {
         [Display(Name = "左连接")]
         [Required(ErrorMessage = "{0}是必填项")]
         [ForeignKey("LeftConnection")]
-        public Guid? LeftConnectionID { get; set; }
+        public int? LeftConnectionID { get; set; }
 
         [Display(Name = "左连接")]
         //[Required(ErrorMessage = "{0}是必填项")]
@@ -33,7 +33,7 @@ namespace DCP.Model
         [Display(Name = "右连接")]
         [Required(ErrorMessage = "{0}是必填项")]
         [ForeignKey("RightConnection")]
-        public Guid? RightConnectionID { get; set; }
+        public int? RightConnectionID { get; set; }
 
         [Display(Name = "右连接")]
         //[Required(ErrorMessage = "{0}是必填项")]

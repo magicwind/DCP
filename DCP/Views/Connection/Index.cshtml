@@ -3,7 +3,9 @@
 <wt:searchpanel vm="@Model" reset-btn="true">
 <wt:row items-per-row="ItemsPerRowEnum.Three">
 <wt:textbox field="Searcher.Name" />
+<wt:combobox field="Searcher.Type" empty-text="全部" />
 <wt:textbox field="Searcher.Host" />
+<wt:textbox field="Searcher.Database" />
 </wt:row>
 </wt:searchpanel>
 <wt:grid vm="@Model" url="/Connection/Search"/>

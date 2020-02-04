@@ -14,8 +14,12 @@ namespace DCP.ViewModel.ConnectionVMs
     {
         [Display(Name = "名称")]
         public String Name { get; set; }
+        [Display(Name = "数据库类型")]
+        public DatabaseType? Type { get; set; }
         [Display(Name = "主机")]
         public String Host { get; set; }
+        [Display(Name = "库名")]
+        public String Database { get; set; }
 
         protected override void InitVM()
         {

@@ -2,7 +2,9 @@
 
 <wt:searchpanel vm="@Model" reset-btn="true">
 <wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:combobox field="Searcher.LeftConnectionID" items="Searcher.AllLeftConnections" empty-text="全部" />
 <wt:textbox field="Searcher.LeftTable" />
+<wt:combobox field="Searcher.RightConnectionID" items="Searcher.AllRightConnections" empty-text="全部" />
 <wt:textbox field="Searcher.RightTable" />
 <wt:combobox field="Searcher.RowChange" empty-text="全部" />
 </wt:row>

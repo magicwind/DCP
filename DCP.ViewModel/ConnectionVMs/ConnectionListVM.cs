@@ -35,6 +35,7 @@ namespace DCP.ViewModel.ConnectionVMs
                 this.MakeGridHeader(x => x.Type),
                 this.MakeGridHeader(x => x.Host),
                 this.MakeGridHeader(x => x.Port),
+                this.MakeGridHeader(x => x.Database),
                 this.MakeGridHeaderAction(width: 200)
             };
         }
@@ -43,7 +44,9 @@ namespace DCP.ViewModel.ConnectionVMs
         {
             var query = DC.Set<Connection>()
                 .CheckContain(Searcher.Name, x=>x.Name)
+                .CheckEqual(Searcher.Type, x=>x.Type)
                 .CheckContain(Searcher.Host, x=>x.Host)
+                .CheckContain(Searcher.Database, x=>x.Database)
                 .Select(x => new Connection_View
                 {
 				    ID = x.ID,
@@ -51,6 +54,7 @@ namespace DCP.ViewModel.ConnectionVMs
                     Type = x.Type,
                     Host = x.Host,
                     Port = x.Port,
+                    Database = x.Database,
                 })
                 .OrderBy(x => x.ID);
             return query;

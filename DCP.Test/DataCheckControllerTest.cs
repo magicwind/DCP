@@ -43,9 +43,10 @@ namespace DCP.Test
             DataCheck v = new DataCheck();
 			
             v.LeftConnectionID = AddLeftConnection();
-            v.LeftTable = "mtvrE4uJ";
+            v.LeftTable = "XLmwPdi";
             v.RightConnectionID = AddRightConnection();
-            v.RightTable = "qTIAgyH";
+            v.RightTable = "VEM";
+            v.ID = 75;
             vm.Entity = v;
             _controller.Create(vm);
 
@@ -53,8 +54,9 @@ namespace DCP.Test
             {
                 var data = context.Set<DataCheck>().FirstOrDefault();
 				
-                Assert.AreEqual(data.LeftTable, "mtvrE4uJ");
-                Assert.AreEqual(data.RightTable, "qTIAgyH");
+                Assert.AreEqual(data.LeftTable, "XLmwPdi");
+                Assert.AreEqual(data.RightTable, "VEM");
+                Assert.AreEqual(data.ID, 75);
                 Assert.AreEqual(data.CreateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.CreateTime.Value).Seconds < 10);
             }
@@ -69,9 +71,10 @@ namespace DCP.Test
             {
        			
                 v.LeftConnectionID = AddLeftConnection();
-                v.LeftTable = "mtvrE4uJ";
+                v.LeftTable = "XLmwPdi";
                 v.RightConnectionID = AddRightConnection();
-                v.RightTable = "qTIAgyH";
+                v.RightTable = "VEM";
+                v.ID = 75;
                 context.Set<DataCheck>().Add(v);
                 context.SaveChanges();
             }
@@ -83,8 +86,8 @@ namespace DCP.Test
             v = new DataCheck();
             v.ID = vm.Entity.ID;
        		
-            v.LeftTable = "2nft";
-            v.RightTable = "UPI7iIpR";
+            v.LeftTable = "skEb";
+            v.RightTable = "Wka95P";
             vm.Entity = v;
             vm.FC = new Dictionary<string, object>();
 			
@@ -92,14 +95,15 @@ namespace DCP.Test
             vm.FC.Add("Entity.LeftTable", "");
             vm.FC.Add("Entity.RightConnectionID", "");
             vm.FC.Add("Entity.RightTable", "");
+            vm.FC.Add("Entity.ID", "");
             _controller.Edit(vm);
 
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
                 var data = context.Set<DataCheck>().FirstOrDefault();
  				
-                Assert.AreEqual(data.LeftTable, "2nft");
-                Assert.AreEqual(data.RightTable, "UPI7iIpR");
+                Assert.AreEqual(data.LeftTable, "skEb");
+                Assert.AreEqual(data.RightTable, "Wka95P");
                 Assert.AreEqual(data.UpdateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.UpdateTime.Value).Seconds < 10);
             }
@@ -115,9 +119,10 @@ namespace DCP.Test
             {
         		
                 v.LeftConnectionID = AddLeftConnection();
-                v.LeftTable = "mtvrE4uJ";
+                v.LeftTable = "XLmwPdi";
                 v.RightConnectionID = AddRightConnection();
-                v.RightTable = "qTIAgyH";
+                v.RightTable = "VEM";
+                v.ID = 75;
                 context.Set<DataCheck>().Add(v);
                 context.SaveChanges();
             }
@@ -147,9 +152,10 @@ namespace DCP.Test
             {
 				
                 v.LeftConnectionID = AddLeftConnection();
-                v.LeftTable = "mtvrE4uJ";
+                v.LeftTable = "XLmwPdi";
                 v.RightConnectionID = AddRightConnection();
-                v.RightTable = "qTIAgyH";
+                v.RightTable = "VEM";
+                v.ID = 75;
                 context.Set<DataCheck>().Add(v);
                 context.SaveChanges();
             }
@@ -167,13 +173,14 @@ namespace DCP.Test
             {
 				
                 v1.LeftConnectionID = AddLeftConnection();
-                v1.LeftTable = "mtvrE4uJ";
+                v1.LeftTable = "XLmwPdi";
                 v1.RightConnectionID = AddRightConnection();
-                v1.RightTable = "qTIAgyH";
+                v1.RightTable = "VEM";
+                v1.ID = 75;
                 v2.LeftConnectionID = v1.LeftConnectionID; 
-                v2.LeftTable = "2nft";
+                v2.LeftTable = "skEb";
                 v2.RightConnectionID = v1.RightConnectionID; 
-                v2.RightTable = "UPI7iIpR";
+                v2.RightTable = "Wka95P";
                 context.Set<DataCheck>().Add(v1);
                 context.Set<DataCheck>().Add(v2);
                 context.SaveChanges();
@@ -201,34 +208,38 @@ namespace DCP.Test
             Assert.IsTrue((rv2 as FileContentResult).FileContents.Length > 0);
         }
 
-        private Guid AddLeftConnection()
+        private Int32 AddLeftConnection()
         {
             Connection v = new Connection();
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 
-                v.Name = "6bhzzxKx";
-                v.Host = "zrlnU";
-                v.Port = 11;
-                v.Username = "wKlj9";
-                v.Password = "sN2CFJ";
+                v.Name = "sY5";
+                v.Host = "Pusj7Lfu";
+                v.Port = 85;
+                v.Database = "Q5I";
+                v.Username = "HHh";
+                v.Password = "IemSCP0S";
+                v.ID = 47;
                 context.Set<Connection>().Add(v);
                 context.SaveChanges();
             }
             return v.ID;
         }
 
-        private Guid AddRightConnection()
+        private Int32 AddRightConnection()
         {
             Connection v = new Connection();
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 
-                v.Name = "aIeXnwfr";
-                v.Host = "tObTvIkFP";
-                v.Port = 33;
-                v.Username = "7xkH3";
-                v.Password = "DDg7di6";
+                v.Name = "ab8";
+                v.Host = "BMo5";
+                v.Port = 27;
+                v.Database = "SoekP1";
+                v.Username = "wKnl";
+                v.Password = "OGf78";
+                v.ID = 73;
                 context.Set<Connection>().Add(v);
                 context.SaveChanges();
             }

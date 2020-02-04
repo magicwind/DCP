@@ -13,7 +13,7 @@ namespace DCP.Model
         MariaDB 
     }
 
-    public class Connection : BasePoco
+    public class Connection : BasePocoWithIntKey
     {
         [Display(Name = "名称")]
         [Required(ErrorMessage = "{0}是必填项")]
@@ -32,6 +32,11 @@ namespace DCP.Model
         [Display(Name = "端口")]
         [Required(ErrorMessage = "{0}是必填项")]
         public int Port { get; set; }
+
+        [Display(Name = "库名")]
+        [Required(ErrorMessage = "{0}是必填项")]
+        [StringLength(32, ErrorMessage = "{0}最多输入{1}个字符")]
+        public string Database { get; set; }
 
         [Display(Name = "用户名")]
         [Required(ErrorMessage = "{0}是必填项")]

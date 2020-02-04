@@ -20,6 +20,8 @@ namespace DCP.ViewModel.ConnectionVMs
         public ExcelPropety Host_Excel = ExcelPropety.CreateProperty<Connection>(x => x.Host);
         [Display(Name = "端口")]
         public ExcelPropety Port_Excel = ExcelPropety.CreateProperty<Connection>(x => x.Port);
+        [Display(Name = "库名")]
+        public ExcelPropety Database_Excel = ExcelPropety.CreateProperty<Connection>(x => x.Database);
         [Display(Name = "用户名")]
         public ExcelPropety Username_Excel = ExcelPropety.CreateProperty<Connection>(x => x.Username);
         [Display(Name = "密码")]

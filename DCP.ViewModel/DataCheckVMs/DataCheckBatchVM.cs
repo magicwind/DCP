@@ -27,10 +27,10 @@ namespace DCP.ViewModel.DataCheckVMs
     {
         public List<ComboSelectListItem> AllLeftConnections { get; set; }
         [Display(Name = "左连接")]
-        public Guid? LeftConnectionID { get; set; }
+        public int? LeftConnectionID { get; set; }
         public List<ComboSelectListItem> AllRightConnections { get; set; }
         [Display(Name = "右连接")]
-        public Guid? RightConnectionID { get; set; }
+        public int? RightConnectionID { get; set; }
         [Display(Name = "行变化类型")]
         public RowChangeMode? RowChange { get; set; }
 
