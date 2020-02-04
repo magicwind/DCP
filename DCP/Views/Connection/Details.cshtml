@@ -1,0 +1,15 @@
+﻿@model DCP.ViewModel.ConnectionVMs.ConnectionVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.Name" />
+<wt:display field="Entity.Type" />
+<wt:display field="Entity.Host" />
+<wt:display field="Entity.Port" />
+<wt:display field="Entity.Username" />
+<wt:display field="Entity.Password" />
+</wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

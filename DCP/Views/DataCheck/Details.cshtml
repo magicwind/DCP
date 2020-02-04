@@ -1,0 +1,14 @@
+﻿@model DCP.ViewModel.DataCheckVMs.DataCheckVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.LeftConnection.Name" />
+<wt:display field="Entity.LeftTable" />
+<wt:display field="Entity.RightConnection.Name" />
+<wt:display field="Entity.RightTable" />
+<wt:display field="Entity.RowChange" />
+</wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

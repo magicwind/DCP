@@ -1,0 +1,15 @@
+﻿@model DCP.ViewModel.DataCheckVMs.DataCheckVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:combobox field="Entity.LeftConnectionID" items="AllLeftConnections"/>
+<wt:textbox field="Entity.LeftTable" />
+<wt:combobox field="Entity.RightConnectionID" items="AllRightConnections"/>
+<wt:textbox field="Entity.RightTable" />
+<wt:combobox field="Entity.RowChange" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
