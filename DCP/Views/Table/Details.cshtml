@@ -1,0 +1,14 @@
+﻿@model DCP.ViewModel.TableVMs.TableVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.Connection.Name" />
+<wt:display field="Entity.TableName" />
+<wt:display field="Entity.IsPartitionTable" />
+<wt:display field="Entity.CreateTimeColumnName" />
+<wt:display field="Entity.UpdateTimeColumnName" />
+</wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

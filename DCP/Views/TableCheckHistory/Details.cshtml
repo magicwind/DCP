@@ -1,0 +1,14 @@
+﻿@model DCP.ViewModel.TableCheckHistoryVMs.TableCheckHistoryVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.Table.TableName" />
+<wt:display field="Entity.GroupType" />
+<wt:display field="Entity.GroupValue" />
+<wt:display field="Entity.GroupCount" />
+<wt:display field="Entity.CheckTime" />
+</wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

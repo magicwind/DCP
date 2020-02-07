@@ -31,10 +31,10 @@ namespace DCP.ViewModel.DataCheckVMs
         protected override IEnumerable<IGridColumn<DataCheck_View>> InitGridHeader()
         {
             return new List<GridColumn<DataCheck_View>>{
-                this.MakeGridHeader(x => x.Name_view),
-                this.MakeGridHeader(x => x.LeftTable),
-                this.MakeGridHeader(x => x.Name_view2),
-                this.MakeGridHeader(x => x.RightTable),
+                this.MakeGridHeader(x => x.Name),
+                this.MakeGridHeader(x => x.TableName_view),
+                this.MakeGridHeader(x => x.TableName_view2),
+                this.MakeGridHeader(x => x.CheckGroupType),
                 this.MakeGridHeader(x => x.RowChange),
                 this.MakeGridHeaderAction(width: 200)
             };
@@ -43,18 +43,16 @@ namespace DCP.ViewModel.DataCheckVMs
         public override IOrderedQueryable<DataCheck_View> GetSearchQuery()
         {
             var query = DC.Set<DataCheck>()
-                .CheckEqual(Searcher.LeftConnectionID, x=>x.LeftConnectionID)
-                .CheckContain(Searcher.LeftTable, x=>x.LeftTable)
-                .CheckEqual(Searcher.RightConnectionID, x=>x.RightConnectionID)
-                .CheckContain(Searcher.RightTable, x=>x.RightTable)
+                .CheckEqual(Searcher.LeftTableID, x=>x.LeftTableID)
+                .CheckEqual(Searcher.RightTableID, x=>x.RightTableID)
                 .CheckEqual(Searcher.RowChange, x=>x.RowChange)
                 .Select(x => new DataCheck_View
                 {
-                    ID = x.ID,
-                    Name_view = x.LeftConnection.Name,
-                    LeftTable = x.LeftTable,
-                    Name_view2 = x.RightConnection.Name,
-                    RightTable = x.RightTable,
+				    ID = x.ID,
+                    Name = x.Name,
+                    TableName_view = x.LeftTable.TableName,
+                    TableName_view2 = x.RightTable.TableName,
+                    CheckGroupType = x.CheckGroupType,
                     RowChange = x.RowChange,
                 })
                 .OrderBy(x => x.ID);
@@ -64,10 +62,10 @@ namespace DCP.ViewModel.DataCheckVMs
     }
 
     public class DataCheck_View : DataCheck{
-        [Display(Name = "名称")]
-        public String Name_view { get; set; }
-        [Display(Name = "名称")]
-        public String Name_view2 { get; set; }
+        [Display(Name = "表名")]
+        public String TableName_view { get; set; }
+        [Display(Name = "表名")]
+        public String TableName_view2 { get; set; }
 
     }
 }

@@ -3,10 +3,10 @@
 <wt:form vm="@Model">
 	<wt:quote>确定要删除这条数据么：</wt:quote>
 <wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:display field="Entity.LeftConnection.Name" />
-<wt:display field="Entity.LeftTable" />
-<wt:display field="Entity.RightConnection.Name" />
-<wt:display field="Entity.RightTable" />
+<wt:display field="Entity.Name" />
+<wt:display field="Entity.LeftTable.TableName" />
+<wt:display field="Entity.RightTable.TableName" />
+<wt:display field="Entity.CheckGroupType" />
 <wt:display field="Entity.RowChange" />
 </wt:row>
     <wt:hidden field="Entity.ID" />

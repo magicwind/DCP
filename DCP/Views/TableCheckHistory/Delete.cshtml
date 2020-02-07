@@ -1,0 +1,17 @@
+﻿@model DCP.ViewModel.TableCheckHistoryVMs.TableCheckHistoryVM
+
+<wt:form vm="@Model">
+	<wt:quote>确定要删除这条数据么：</wt:quote>
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.Table.TableName" />
+<wt:display field="Entity.GroupType" />
+<wt:display field="Entity.GroupValue" />
+<wt:display field="Entity.GroupCount" />
+<wt:display field="Entity.CheckTime" />
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align=" AlignEnum.Right">
+        <wt:submitbutton theme=" ButtonThemeEnum.Warm" text="删除"/>
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

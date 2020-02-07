@@ -42,11 +42,9 @@ namespace DCP.Test
             DataCheckVM vm = rv.Model as DataCheckVM;
             DataCheck v = new DataCheck();
 			
-            v.LeftConnectionID = AddLeftConnection();
-            v.LeftTable = "XLmwPdi";
-            v.RightConnectionID = AddRightConnection();
-            v.RightTable = "VEM";
-            v.ID = 75;
+            v.LeftTableID = AddLeftTable();
+            v.RightTableID = AddRightTable();
+            v.ID = 21;
             vm.Entity = v;
             _controller.Create(vm);
 
@@ -54,9 +52,7 @@ namespace DCP.Test
             {
                 var data = context.Set<DataCheck>().FirstOrDefault();
 				
-                Assert.AreEqual(data.LeftTable, "XLmwPdi");
-                Assert.AreEqual(data.RightTable, "VEM");
-                Assert.AreEqual(data.ID, 75);
+                Assert.AreEqual(data.ID, 21);
                 Assert.AreEqual(data.CreateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.CreateTime.Value).Seconds < 10);
             }
@@ -70,11 +66,9 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
        			
-                v.LeftConnectionID = AddLeftConnection();
-                v.LeftTable = "XLmwPdi";
-                v.RightConnectionID = AddRightConnection();
-                v.RightTable = "VEM";
-                v.ID = 75;
+                v.LeftTableID = AddLeftTable();
+                v.RightTableID = AddRightTable();
+                v.ID = 21;
                 context.Set<DataCheck>().Add(v);
                 context.SaveChanges();
             }
@@ -86,15 +80,11 @@ namespace DCP.Test
             v = new DataCheck();
             v.ID = vm.Entity.ID;
        		
-            v.LeftTable = "skEb";
-            v.RightTable = "Wka95P";
             vm.Entity = v;
             vm.FC = new Dictionary<string, object>();
 			
-            vm.FC.Add("Entity.LeftConnectionID", "");
-            vm.FC.Add("Entity.LeftTable", "");
-            vm.FC.Add("Entity.RightConnectionID", "");
-            vm.FC.Add("Entity.RightTable", "");
+            vm.FC.Add("Entity.LeftTableID", "");
+            vm.FC.Add("Entity.RightTableID", "");
             vm.FC.Add("Entity.ID", "");
             _controller.Edit(vm);
 
@@ -102,8 +92,6 @@ namespace DCP.Test
             {
                 var data = context.Set<DataCheck>().FirstOrDefault();
  				
-                Assert.AreEqual(data.LeftTable, "skEb");
-                Assert.AreEqual(data.RightTable, "Wka95P");
                 Assert.AreEqual(data.UpdateBy, "user");
                 Assert.IsTrue(DateTime.Now.Subtract(data.UpdateTime.Value).Seconds < 10);
             }
@@ -118,11 +106,9 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
         		
-                v.LeftConnectionID = AddLeftConnection();
-                v.LeftTable = "XLmwPdi";
-                v.RightConnectionID = AddRightConnection();
-                v.RightTable = "VEM";
-                v.ID = 75;
+                v.LeftTableID = AddLeftTable();
+                v.RightTableID = AddRightTable();
+                v.ID = 21;
                 context.Set<DataCheck>().Add(v);
                 context.SaveChanges();
             }
@@ -151,11 +137,9 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v.LeftConnectionID = AddLeftConnection();
-                v.LeftTable = "XLmwPdi";
-                v.RightConnectionID = AddRightConnection();
-                v.RightTable = "VEM";
-                v.ID = 75;
+                v.LeftTableID = AddLeftTable();
+                v.RightTableID = AddRightTable();
+                v.ID = 21;
                 context.Set<DataCheck>().Add(v);
                 context.SaveChanges();
             }
@@ -172,15 +156,11 @@ namespace DCP.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.LeftConnectionID = AddLeftConnection();
-                v1.LeftTable = "XLmwPdi";
-                v1.RightConnectionID = AddRightConnection();
-                v1.RightTable = "VEM";
-                v1.ID = 75;
-                v2.LeftConnectionID = v1.LeftConnectionID; 
-                v2.LeftTable = "skEb";
-                v2.RightConnectionID = v1.RightConnectionID; 
-                v2.RightTable = "Wka95P";
+                v1.LeftTableID = AddLeftTable();
+                v1.RightTableID = AddRightTable();
+                v1.ID = 21;
+                v2.LeftTableID = v1.LeftTableID; 
+                v2.RightTableID = v1.RightTableID; 
                 context.Set<DataCheck>().Add(v1);
                 context.Set<DataCheck>().Add(v2);
                 context.SaveChanges();
@@ -208,39 +188,73 @@ namespace DCP.Test
             Assert.IsTrue((rv2 as FileContentResult).FileContents.Length > 0);
         }
 
-        private Int32 AddLeftConnection()
+        private Int32 AddConnection()
         {
             Connection v = new Connection();
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 
-                v.Name = "sY5";
-                v.Host = "Pusj7Lfu";
-                v.Port = 85;
-                v.Database = "Q5I";
-                v.Username = "HHh";
-                v.Password = "IemSCP0S";
-                v.ID = 47;
+                v.Name = "RvldQyp";
+                v.Host = "Vb8x4WaQ";
+                v.Port = 38;
+                v.Database = "ajYFf";
+                v.Username = "U6AOoJ";
+                v.Password = "mHrA4";
+                v.ID = 85;
                 context.Set<Connection>().Add(v);
                 context.SaveChanges();
             }
             return v.ID;
         }
 
-        private Int32 AddRightConnection()
+        private Int32 AddLeftTable()
+        {
+            Table v = new Table();
+            using (var context = new DataContext(_seed, DBTypeEnum.Memory))
+            {
+
+                v.ConnectionID = AddConnection();
+                v.TableName = "lXkx";
+                v.CreateTimeColumnName = "3BAL5A";
+                v.UpdateTimeColumnName = "ktwL";
+                v.ID = 3;
+                context.Set<Table>().Add(v);
+                context.SaveChanges();
+            }
+            return v.ID;
+        }
+
+        private Int32 AddConnection2()
         {
             Connection v = new Connection();
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 
-                v.Name = "ab8";
-                v.Host = "BMo5";
-                v.Port = 27;
-                v.Database = "SoekP1";
-                v.Username = "wKnl";
-                v.Password = "OGf78";
-                v.ID = 73;
+                v.Name = "I9Ey13Vxo";
+                v.Host = "8Yicx6";
+                v.Port = 65;
+                v.Database = "jpHEQa";
+                v.Username = "xrkwXJgRf";
+                v.Password = "yGzCFwlP";
+                v.ID = 28;
                 context.Set<Connection>().Add(v);
+                context.SaveChanges();
+            }
+            return v.ID;
+        }
+
+        private Int32 AddRightTable()
+        {
+            Table v = new Table();
+            using (var context = new DataContext(_seed, DBTypeEnum.Memory))
+            {
+
+                v.ConnectionID = AddConnection2();
+                v.TableName = "iaBac0";
+                v.CreateTimeColumnName = "GXRDt";
+                v.UpdateTimeColumnName = "F8W";
+                v.ID = 45;
+                context.Set<Table>().Add(v);
                 context.SaveChanges();
             }
             return v.ID;

@@ -1,0 +1,11 @@
+﻿@model DCP.ViewModel.DataCheckRunVMs.DataCheckRunListVM
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:textbox field="Searcher.RunName" />
+<wt:datetime field="Searcher.StartedAt" />
+<wt:datetime field="Searcher.EndedAt" />
+<wt:combobox field="Searcher.Status" empty-text="全部" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/DataCheckRun/Search"/>

@@ -1,0 +1,15 @@
+﻿@model DCP.ViewModel.TableVMs.TableVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:combobox field="Entity.ConnectionID" items="AllConnections"/>
+<wt:textbox field="Entity.TableName" />
+<wt:combobox field="Entity.IsPartitionTable" />
+<wt:textbox field="Entity.CreateTimeColumnName" />
+<wt:textbox field="Entity.UpdateTimeColumnName" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

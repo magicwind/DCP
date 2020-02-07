@@ -2,10 +2,10 @@
 
 <wt:form vm="@Model">
 <wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:combobox field="Entity.LeftConnectionID" items="AllLeftConnections"/>
-<wt:textbox field="Entity.LeftTable" />
-<wt:combobox field="Entity.RightConnectionID" items="AllRightConnections"/>
-<wt:textbox field="Entity.RightTable" />
+<wt:textbox field="Entity.Name" />
+<wt:combobox field="Entity.LeftTableID" items="AllLeftTables"/>
+<wt:combobox field="Entity.RightTableID" items="AllRightTables"/>
+<wt:combobox field="Entity.CheckGroupType" />
 <wt:combobox field="Entity.RowChange" />
 </wt:row>
     <wt:row align="AlignEnum.Right">

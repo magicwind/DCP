@@ -12,19 +12,19 @@ namespace DCP.ViewModel.DataCheckVMs
 {
     public partial class DataCheckVM : BaseCRUDVM<DataCheck>
     {
-        public List<ComboSelectListItem> AllLeftConnections { get; set; }
-        public List<ComboSelectListItem> AllRightConnections { get; set; }
+        public List<ComboSelectListItem> AllLeftTables { get; set; }
+        public List<ComboSelectListItem> AllRightTables { get; set; }
 
         public DataCheckVM()
         {
-            SetInclude(x => x.LeftConnection);
-            SetInclude(x => x.RightConnection);
+            SetInclude(x => x.LeftTable);
+            SetInclude(x => x.RightTable);
         }
 
         protected override void InitVM()
         {
-            AllLeftConnections = DC.Set<Connection>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.Name);
-            AllRightConnections = DC.Set<Connection>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.Name);
+            AllLeftTables = DC.Set<Table>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
+            AllRightTables = DC.Set<Table>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
         }
 
         public override void DoAdd()

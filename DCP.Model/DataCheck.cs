@@ -15,35 +15,29 @@ namespace DCP.Model
 
     public class DataCheck : BasePocoWithIntKey
     {
-        [Display(Name = "左连接")]
+        [Display(Name = "名称")]
+        [StringLength(64)]
+        public string Name { get; set; }
+
+        [Display(Name = "左表")]
         [Required(ErrorMessage = "{0}是必填项")]
-        [ForeignKey("LeftConnection")]
-        public int? LeftConnectionID { get; set; }
+        [ForeignKey("LeftTable")]
+        public int? LeftTableID { get; set; }
 
-        [Display(Name = "左连接")]
-        //[Required(ErrorMessage = "{0}是必填项")]
-        //[InverseProperty("LeftConnsInDataCheck")]
-        public Connection LeftConnection { get; set; }
+        [Display(Name = "左表")]
+        public Table LeftTable { get; set; }
 
-        [Display(Name = "左表名称")]
+        [Display(Name = "右表")]
         [Required(ErrorMessage = "{0}是必填项")]
-        [StringLength(128)]
-        public string LeftTable { get; set; }
+        [ForeignKey("RightTable")]
+        public int? RightTableID { get; set; }
 
-        [Display(Name = "右连接")]
+        [Display(Name = "右表")]
+        public Table RightTable { get; set; }
+
+        [Display(Name = "分组检查类型")]
         [Required(ErrorMessage = "{0}是必填项")]
-        [ForeignKey("RightConnection")]
-        public int? RightConnectionID { get; set; }
-
-        [Display(Name = "右连接")]
-        //[Required(ErrorMessage = "{0}是必填项")]
-        //[InverseProperty("RightConnsInDataCheck")]
-        public Connection RightConnection { get; set; }
-
-        [Display(Name = "右表名称")]
-        [Required(ErrorMessage = "{0}是必填项")]
-        [StringLength(128)]
-        public string RightTable { get; set; }
+        public TableCheckGroupType CheckGroupType { get; set; }
 
         [Display(Name = "行变化类型")]
         [Required(ErrorMessage = "{0}是必填项")]

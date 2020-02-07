@@ -12,23 +12,23 @@ namespace DCP.ViewModel.DataCheckVMs
 {
     public partial class DataCheckTemplateVM : BaseTemplateVM
     {
-        [Display(Name = "左连接")]
-        public ExcelPropety LeftConnection_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.LeftConnectionID);
-        [Display(Name = "左表名称")]
-        public ExcelPropety LeftTable_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.LeftTable);
-        [Display(Name = "右连接")]
-        public ExcelPropety RightConnection_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.RightConnectionID);
-        [Display(Name = "右表名称")]
-        public ExcelPropety RightTable_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.RightTable);
+        [Display(Name = "名称")]
+        public ExcelPropety Name_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.Name);
+        [Display(Name = "左表")]
+        public ExcelPropety LeftTable_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.LeftTableID);
+        [Display(Name = "右表")]
+        public ExcelPropety RightTable_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.RightTableID);
+        [Display(Name = "分组检查类型")]
+        public ExcelPropety CheckGroupType_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.CheckGroupType);
         [Display(Name = "行变化类型")]
         public ExcelPropety RowChange_Excel = ExcelPropety.CreateProperty<DataCheck>(x => x.RowChange);
 
 	    protected override void InitVM()
         {
-            LeftConnection_Excel.DataType = ColumnDataType.ComboBox;
-            LeftConnection_Excel.ListItems = DC.Set<Connection>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.Name);
-            RightConnection_Excel.DataType = ColumnDataType.ComboBox;
-            RightConnection_Excel.ListItems = DC.Set<Connection>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.Name);
+            LeftTable_Excel.DataType = ColumnDataType.ComboBox;
+            LeftTable_Excel.ListItems = DC.Set<Table>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
+            RightTable_Excel.DataType = ColumnDataType.ComboBox;
+            RightTable_Excel.ListItems = DC.Set<Table>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
         }
 
     }

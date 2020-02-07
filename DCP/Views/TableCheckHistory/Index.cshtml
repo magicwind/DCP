@@ -1,0 +1,10 @@
+﻿@model DCP.ViewModel.TableCheckHistoryVMs.TableCheckHistoryListVM
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:combobox field="Searcher.TableID" items="Searcher.AllTables" empty-text="全部" />
+<wt:textbox field="Searcher.GroupValue" />
+<wt:datetime field="Searcher.CheckTime" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/TableCheckHistory/Search"/>

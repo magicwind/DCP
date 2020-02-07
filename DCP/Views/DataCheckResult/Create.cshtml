@@ -1,0 +1,15 @@
+﻿@model DCP.ViewModel.DataCheckResultVMs.DataCheckResultVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:combobox field="Entity.DataCheckID" items="AllDataChecks"/>
+<wt:combobox field="Entity.DataCheckRunID" items="AllDataCheckRuns"/>
+<wt:textbox field="Entity.CreatedDate" />
+<wt:textbox field="Entity.LeftCount" />
+<wt:textbox field="Entity.RightCount" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

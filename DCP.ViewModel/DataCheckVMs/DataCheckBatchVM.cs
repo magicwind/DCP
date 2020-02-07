@@ -25,19 +25,11 @@ namespace DCP.ViewModel.DataCheckVMs
     /// </summary>
     public class DataCheck_BatchEdit : BaseVM
     {
-        public List<ComboSelectListItem> AllLeftConnections { get; set; }
-        [Display(Name = "左连接")]
-        public int? LeftConnectionID { get; set; }
-        public List<ComboSelectListItem> AllRightConnections { get; set; }
-        [Display(Name = "右连接")]
-        public int? RightConnectionID { get; set; }
         [Display(Name = "行变化类型")]
         public RowChangeMode? RowChange { get; set; }
 
         protected override void InitVM()
         {
-            AllLeftConnections = DC.Set<Connection>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.Name);
-            AllRightConnections = DC.Set<Connection>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.Name);
         }
 
     }

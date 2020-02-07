@@ -1,0 +1,14 @@
+﻿@model DCP.ViewModel.DataCheckResultVMs.DataCheckResultVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.DataCheck.Name" />
+<wt:display field="Entity.DataCheckRun.RunName" />
+<wt:display field="Entity.CreatedDate" />
+<wt:display field="Entity.LeftCount" />
+<wt:display field="Entity.RightCount" />
+</wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

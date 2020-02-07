@@ -3,8 +3,6 @@
 <wt:form vm="@Model">
     <div style="margin-bottom:10px">批量修改以下数据: </div>
 <wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:combobox field="LinkedVM.LeftConnectionID" items="LinkedVM.AllLeftConnections"/>
-<wt:combobox field="LinkedVM.RightConnectionID" items="LinkedVM.AllRightConnections"/>
 <wt:combobox field="LinkedVM.RowChange" />
 </wt:row>
     <wt:hidden field="Ids" />

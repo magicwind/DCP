@@ -11,7 +11,16 @@ namespace DCP.DataAccess
     public class DataContext : FrameworkContext
     {
         public DbSet<Connection> Connections { get; set; }
+
+        public DbSet<Table> Tables { get; set; }
+
         public DbSet<DataCheck> DataChecks { get; set; }
+
+        public DbSet<DataCheckRun> DataCheckRuns { get; set; }
+
+        public DbSet<DataCheckResult> DataCheckResults { get; set; }
+
+        public DbSet<TableCheckHistory> TableCheckHistories { get; set; }
 
         public DataContext(string cs, DBTypeEnum dbtype)
              : base(cs, dbtype)

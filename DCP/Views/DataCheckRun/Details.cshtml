@@ -1,0 +1,15 @@
+﻿@model DCP.ViewModel.DataCheckRunVMs.DataCheckRunVM
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.RunName" />
+<wt:display field="Entity.StartedAt" />
+<wt:display field="Entity.EndedAt" />
+<wt:display field="Entity.PassedCaseCount" />
+<wt:display field="Entity.FailedCaseCount" />
+<wt:display field="Entity.Status" />
+</wt:row>
+    <wt:row align=" AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
