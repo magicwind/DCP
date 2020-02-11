@@ -1,0 +1,12 @@
+pipeline:
+  ecr:
+    image: plugins/ecr
+    repo: 120896031351.dkr.ecr.ap-southeast-1.amazonaws.com/data/data-check-platform
+    registry: 120896031351.dkr.ecr.ap-southeast-1.amazonaws.com
+    region: ap-southeast-1
+    secrets: [ecr_access_key, ecr_secret_key]
+    tags:
+      - latest
+      - "${DRONE_TAG}"
+    when:
+      event: tag
