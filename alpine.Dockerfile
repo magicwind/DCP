@@ -3,6 +3,7 @@ WORKDIR /app
 
 COPY . .
 RUN dotnet publish "./DCP/DCP.csproj" -c Release -o /app/out
+COPY docker-entrypoint.sh /app/out
 
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS runtime
@@ -15,4 +16,6 @@ RUN apk add libgdiplus --update-cache --repository http://dl-cdn.alpinelinux.org
 
 ENV ASPNETCORE_URLS http://+:80
 ENV ASPNETCORE_ENVIRONMENT Production
-ENTRYPOINT ["dotnet", "DCP.dll"]
+ENV DB_CONN_STR_DEFAULT "Server=localhost; Database=dcp; User=root; Password=root;"
+
+ENTRYPOINT ["sh", "docker-entrypoint.sh"]

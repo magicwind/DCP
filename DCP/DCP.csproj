@@ -21,7 +21,7 @@
    <ProjectReference Include="..\DCP.Model\DCP.Model.csproj" />
     <ProjectReference Include="..\DCP.DataAccess\DCP.DataAccess.csproj" />
     <ProjectReference Include="..\DCP.ViewModel\DCP.ViewModel.csproj" />
- </ItemGroup >
+ </ItemGroup>
 </Project>
 
 

@@ -3,6 +3,7 @@ WORKDIR /app
 
 COPY . .
 RUN dotnet publish "./DCP/DCP.csproj" -c Release -o /app/out
+COPY docker-entrypoint.sh /app/out
 
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
@@ -15,4 +16,5 @@ RUN apt-get update && \
 
 ENV ASPNETCORE_URLS http://+:80
 ENV ASPNETCORE_ENVIRONMENT Production
-ENTRYPOINT ["dotnet", "DCP.dll"]
+
+ENTRYPOINT ["sh", "docker-entrypoint.sh"]
