@@ -1,13 +1,19 @@
 ﻿@model DCP.ViewModel.DataCheckVMs.DataCheckVM
 
 <wt:form vm="@Model">
-<wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:textbox field="Entity.Name" />
-<wt:combobox field="Entity.LeftTableID" items="AllLeftTables"/>
-<wt:combobox field="Entity.RightTableID" items="AllRightTables"/>
-<wt:combobox field="Entity.CheckGroupType" />
-<wt:combobox field="Entity.RowChange" />
-</wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:textbox field="Entity.Name" />
+    </wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:combobox field="LeftConnectionId" label-text="左表连接" items="AllDatabases" link-field="Entity.LeftTableID" trigger-url="/DataCheck/GetTableByConnection" />
+        <wt:combobox field="RightConnectionId" label-text="右表连接" items="RedshiftOnlyDatabases" link-field="Entity.RightTableID" trigger-url="/DataCheck/GetTableByConnection" />
+
+        <wt:combobox field="Entity.LeftTableID" items="AllLeftTables" />
+        <wt:combobox field="Entity.RightTableID" items="AllRightTables" />
+
+        <wt:combobox field="Entity.CheckGroupType" />
+        <wt:combobox field="Entity.RowChange" />
+    </wt:row>
     <wt:hidden field="Entity.ID" />
     <wt:row align="AlignEnum.Right">
         <wt:submitbutton />

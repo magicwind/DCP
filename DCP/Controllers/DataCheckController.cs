@@ -5,6 +5,9 @@ using WalkingTec.Mvvm.Core;
 using WalkingTec.Mvvm.Mvc;
 using WalkingTec.Mvvm.Core.Extensions;
 using DCP.ViewModel.DataCheckVMs;
+using System.Collections.Generic;
+using DCP.Model;
+using System.Linq;
 
 namespace DCP.Controllers
 {
@@ -206,6 +209,13 @@ namespace DCP.Controllers
             vm.SearcherMode = vm.Ids != null && vm.Ids.Count > 0 ? ListVMSearchModeEnum.CheckExport : ListVMSearchModeEnum.Export;
             var data = vm.GenerateExcel();
             return File(data, "application/vnd.ms-excel", $"Export_DataCheck_{DateTime.Now.ToString("yyyy-MM-dd")}.xls");
+        }
+
+        public IActionResult GetTableByConnection(int id)
+        {
+            var rv = DC.Set<Table>().Where(x => x.ConnectionID == id).GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
+
+            return Json(rv);
         }
 
     }

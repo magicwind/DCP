@@ -1,13 +1,17 @@
 ﻿@model DCP.ViewModel.DataCheckVMs.DataCheckVM
 
 <wt:form vm="@Model">
-<wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:display field="Entity.Name" />
-<wt:display field="Entity.LeftTable.TableName" />
-<wt:display field="Entity.RightTable.TableName" />
-<wt:display field="Entity.CheckGroupType" />
-<wt:display field="Entity.RowChange" />
-</wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:display field="Entity.Name" />
+    </wt:row>
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:display field="LeftConnectionName" label-text="左表连接" />
+        <wt:display field="RightConnectionName" label-text="右表连接" />
+        <wt:display field="Entity.LeftTable.TableName" label-text="左表" />
+        <wt:display field="Entity.RightTable.TableName" label-text="右表" />
+        <wt:display field="Entity.CheckGroupType" />
+        <wt:display field="Entity.RowChange" />
+    </wt:row>
     <wt:row align=" AlignEnum.Right">
         <wt:closebutton />
     </wt:row>
