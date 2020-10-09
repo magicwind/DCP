@@ -25,10 +25,12 @@ namespace DCP.ViewModel.DataCheckVMs
 
 	    protected override void InitVM()
         {
+            var redshiftConnID = DC.Set<Connection>().Where(d => d.Type == DatabaseType.Redshift).SingleOrDefault().ID;
+
             LeftTable_Excel.DataType = ColumnDataType.ComboBox;
-            LeftTable_Excel.ListItems = DC.Set<Table>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
+            LeftTable_Excel.ListItems = DC.Set<Table>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.ConnectionID + " - " + y.TableName);
             RightTable_Excel.DataType = ColumnDataType.ComboBox;
-            RightTable_Excel.ListItems = DC.Set<Table>().GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
+            RightTable_Excel.ListItems = DC.Set<Table>().Where(t => t.ConnectionID == redshiftConnID).GetSelectListItems(LoginUserInfo?.DataPrivileges, null, y => y.TableName);
         }
 
     }
